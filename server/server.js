@@ -34,12 +34,21 @@ io.on('connection', (socket)=>{
 
     // });
 
-    // socket.emit('newMessage', {
-    // 	from: 'server',
-    // 	text: 'hi client',
-    // 	createdAt: 1245
+    socket.emit('newMessage', {
+    	from: 'Admin',
+    	text: 'Welcome to chat app',
+    	createdAt: 1245
 
-    // });
+    });
+
+    socket.broadcast.emit('newMessage',{
+		from: 'Admin',
+		text: 'new user joined',
+		createdAt: new Date().getTime()
+
+	});
+
+
 
     socket.on('createMessage', (message)=>{
 
@@ -52,6 +61,8 @@ io.on('connection', (socket)=>{
 
 
     	});
+
+
 
     });
 

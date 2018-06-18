@@ -8,12 +8,12 @@
 			// 	text: 'hi'
 			// });
 
-			   socket.emit('createMessage', {
+			   // socket.emit('createMessage', {
 
-			   	from:'ttk',
-			   	message: 'hi server'
+			   // 	from:'ttk',
+			   // 	message: 'hi server'
 
-			   });
+			   // });
 		});
 
 		socket.on('disconnect',function(){

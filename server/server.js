@@ -34,16 +34,24 @@ io.on('connection', (socket)=>{
 
     // });
 
-    socket.emit('newMessage', {
-    	from: 'server',
-    	text: 'hi client',
-    	createdAt: 1245
+    // socket.emit('newMessage', {
+    // 	from: 'server',
+    // 	text: 'hi client',
+    // 	createdAt: 1245
 
-    });
+    // });
 
     socket.on('createMessage', (message)=>{
 
     	console.log('create message', message);
+
+    	io.emit('newMessage',{
+    		from: message.from,
+    		text: message.message, 
+    		createdAt: new Date().getTime()
+
+
+    	});
 
     });
 
